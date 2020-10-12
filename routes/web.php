@@ -20,3 +20,6 @@ $router->get('/', function () use ($router) {
 $router->get('/biodata', function (){
     return 'Nama : Ryan Gatutkaca Qalbi Ramadhan || NIM : 185150700111020';
 });
+
+$router->get('/products', 'ProductController@index');
+$router->get('/products/{id}', 'ProductController@show');

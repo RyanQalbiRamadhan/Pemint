@@ -1,5 +1,5 @@
-#Praktikum Pemrograman Integratif B
-Nama : Ryan Gatutkaca Qalbi Ramadhan
+#Praktikum Pemrograman Integratif B ||
+Nama : Ryan Gatutkaca Qalbi Ramadhan,
 NIM  : 185150700111020
 
 #Tugas 1
