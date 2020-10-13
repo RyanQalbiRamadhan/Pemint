@@ -9,7 +9,6 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-
         return response()->json([
                 'message' => 'Menampilkan semua produk',
                 'data' => $products
@@ -23,6 +22,41 @@ class ProductController extends Controller
             return response()->json([
                 'message' => 'Produk berhasil ditemukan',
                 'data' => $product
+            ], 200);
+        } else {
+            return response()->json([
+                'message' => 'Produk tidak ada'
+            ], 404);
+        }
+    }
+
+    public function store(Request $request)
+    {
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'rating' => $request->rating,
+            'quantity' => $request->quantity
+        ]);
+        if($product){
+            return response()->json([
+                'message' => 'Produk berhasil disimpan',
+                'data' => $product
+            ], 200);
+        }else {
+            return response()->json([
+                'message' => 'Produk gagal disimpan',
+            ], 401);
+        }
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::find($id);
+        if($product){
+            $product->delete();
+            return response()->json([
+                'message' => 'Produk berhasil dihapus'
             ], 200);
         } else {
             return response()->json([

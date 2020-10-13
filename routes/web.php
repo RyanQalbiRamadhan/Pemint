@@ -21,5 +21,11 @@ $router->get('/biodata', function (){
     return 'Nama : Ryan Gatutkaca Qalbi Ramadhan || NIM : 185150700111020';
 });
 
+$router->get('/key', function() {
+    return \Illuminate\Support\Str::random(32);
+});
+
 $router->get('/products', 'ProductController@index');
 $router->get('/products/{id}', 'ProductController@show');
+$router->post('/products', 'ProductController@store');
+$router->delete('/products/{id}', 'ProductController@destroy');
